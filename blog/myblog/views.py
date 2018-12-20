@@ -30,3 +30,15 @@ class BlogPostAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
+
+
+class BlogPostRudView(generics.RetrieveUpdateDestroyAPIView):
+    lookup_field = 'pk'  # slug, id # url(r'?P<pk>\d+')
+    serializer_class = BlogPostSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+
+    def get_queryset(self):
+        return BlogPost.objects.all()
+
+    def get_serializer_context(self, *args, **kwargs):
+        return {"request": self.request}
