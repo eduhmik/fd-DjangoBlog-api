@@ -30,4 +30,3 @@ class BlogPostAPIView(mixins.CreateModelMixin, generics.ListAPIView):
 
     def get_serializer_context(self, *args, **kwargs):
         return {"request": self.request}
-
