@@ -8,8 +8,8 @@ class BlogPost(models.Model):
     """This class represents a blog model"""
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    title = models.CharField(max_length=120, null=True, blank=True)
-    content = models.TextField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=120)
+    content = models.TextField(max_length=255)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
