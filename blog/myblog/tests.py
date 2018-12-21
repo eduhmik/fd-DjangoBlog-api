@@ -1,6 +1,5 @@
 from django.test import TestCase
 
-# Create your tests here.
 from .models import BlogPost
 from rest_framework.reverse import reverse as api_reverse
 from django.contrib.auth import get_user_model
